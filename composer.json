@@ -1,5 +1,5 @@
 {
-	"name": "kdyby/doctrine-magic-accessors",
+	"name": "antstudiocz/doctrine-magic-accessors",
 	"type": "library",
 	"description": "Fast-prototyping magic accessors trait for Doctrine entities",
 	"keywords": ["kdyby", "doctrine", "orm", "dbal", "magic", "accessors"],
