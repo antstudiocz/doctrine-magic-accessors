@@ -1,0 +1,25 @@
+on: [push, pull_request]
+
+jobs:
+  tests:
+    name: PHP ${{ matrix.php }}
+    runs-on: macos-latest
+
+    strategy:
+      matrix:
+        php: ['8.0', '8.1']
+      fail-fast: false
+
+    steps:
+      - uses: actions/checkout@v2
+      - uses: shivammathur/setup-php@v2
+        with:
+          php-version: ${{ matrix.php }}
+          coverage: none
+
+      - run: composer install
+      - run: vendor/bin/tester tests -C
+      - run: vendor/bin/parallel-lint . -e php,php3,php4,php5,phtml,phpt --exclude vendor --blame
+
+
+
